@@ -3,7 +3,7 @@
  */
 body {
 	color: black;
-	background-color: #dfd;
+	background-color: #FCFFFC;
 }
 
 dt {
@@ -50,15 +50,16 @@ td {
 }
 
 th {
-	background-color: #ddf;
+	background-color: #85ABAB;
 }
 
 th a {
 	text-decoration: none;
+	color: black;
 }
 
 tr:hover {
-	background-color: #ddf;
+	background-color: #85ABAB;
 }
 
 td {
@@ -91,12 +92,12 @@ td {
 	color: black;
 	border: 1px solid black;
 	margin: 0.5em;
-	background-color: #ddf;
+	background-color: #85ABAB;
 }
 
 .nav li a:hover {
-	background-color: #ddd;
-	border-bottom: 1px solid #ddf;
+	background-color: #B2E5E5;
+	border-bottom: 1px solid #85ABAB;
 }
 
 img {
@@ -108,7 +109,7 @@ img {
 th img {
 	border: 0px;
 	padding: 0px;
-	background-color: #ddf;
+	background-color: #85ABAB;
 }
 
 h1 a, h2 a {
@@ -127,7 +128,7 @@ h1 {
 }
 
 h2 {
-	background-color: #564;
+	background-color: #2D3A3A;
 	border: 1px solid black;
 	padding-left: 0.5em;
 	padding-right: 0.5em;
