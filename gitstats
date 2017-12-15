@@ -23,7 +23,7 @@ from multiprocessing import Pool
 os.environ['LC_ALL'] = 'C'
 
 GNUPLOT_COMMON = """
-set terminal png transparent size 640,240
+set terminal png transparent size 1280,768
 set size 1.0,1.0
 set yrange [0:]
 unset key
