@@ -29,7 +29,8 @@ set yrange [0:]
 unset key
 set grid y
 """
-LINE_COLOR = "linecolor rgb '#ff0000'"
+CSS_COLOR = "#2BA84A"
+LINE_COLOR = "linecolor rgb '#2BA84A'"
 ON_LINUX = (platform.system() == 'Linux')
 WEEKDAYS = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
 
@@ -812,7 +813,7 @@ class HTMLReportCreator(ReportCreator):
 			if weeks[i] in data.activity_by_year_week:
 				percentage = float(data.activity_by_year_week[weeks[i]]) / data.activity_by_year_week_peak
 			height = max(1, int(200 * percentage))
-			f.write('<td style="text-align: center; vertical-align: bottom">%d<div style="display: block; background-color: red; width: 20px; height: %dpx"></div></td>' % (commits, height))
+			f.write('<td style="text-align: center; vertical-align: bottom">%d<div style="display: block; background-color: %s; width: 20px; height: %dpx"></div></td>' % (commits, CSS_COLOR, height))
 
 		# bottom row: year/week
 		f.write('</tr><tr>')
