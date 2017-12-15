@@ -1312,7 +1312,6 @@ plot 'lines_of_code.dat' using 1:2 w lines
 		f.write(GNUPLOT_COMMON)
 		f.write(
 """
-set terminal png transparent size 640,480
 set output 'lines_of_code_by_author.png'
 set key left top
 set yrange [0:]
@@ -1341,7 +1340,6 @@ plot """
 		f.write(GNUPLOT_COMMON)
 		f.write(
 """
-set terminal png transparent size 640,480
 set output 'commits_by_author.png'
 set key left top
 set yrange [0:]
