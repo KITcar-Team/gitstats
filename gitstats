@@ -22,7 +22,13 @@ from multiprocessing import Pool
 
 os.environ['LC_ALL'] = 'C'
 
-GNUPLOT_COMMON = 'set terminal png transparent size 640,240\nset size 1.0,1.0\n'
+GNUPLOT_COMMON = """
+set terminal png transparent size 640,240
+set size 1.0,1.0
+set yrange [0:]
+unset key
+set grid y
+"""
 ON_LINUX = (platform.system() == 'Linux')
 WEEKDAYS = ('Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun')
 
@@ -1176,11 +1182,8 @@ class HTMLReportCreator(ReportCreator):
 		f.write(
 """
 set output 'hour_of_day.png'
-unset key
 set xrange [0.5:24.5]
-set yrange [0:]
 set xtics 4
-set grid y
 set ylabel "Commits"
 plot 'hour_of_day.dat' using 1:2:(0.5) w boxes fs solid
 """)
@@ -1192,11 +1195,8 @@ plot 'hour_of_day.dat' using 1:2:(0.5) w boxes fs solid
 		f.write(
 """
 set output 'day_of_week.png'
-unset key
 set xrange [0.5:7.5]
-set yrange [0:]
 set xtics 1
-set grid y
 set ylabel "Commits"
 plot 'day_of_week.dat' using 1:3:(0.5):xtic(2) w boxes fs solid
 """)
@@ -1208,10 +1208,7 @@ plot 'day_of_week.dat' using 1:3:(0.5):xtic(2) w boxes fs solid
 		f.write(
 """
 set output 'domains.png'
-unset key
 unset xtics
-set yrange [0:]
-set grid y
 set ylabel "Commits"
 plot 'domains.dat' using 2:3:(0.5) with boxes fs solid, '' using 2:3:1 with labels rotate by 45 offset 0,1
 """)
@@ -1223,11 +1220,8 @@ plot 'domains.dat' using 2:3:(0.5) with boxes fs solid, '' using 2:3:1 with labe
 		f.write(
 """
 set output 'month_of_year.png'
-unset key
 set xrange [0.5:12.5]
-set yrange [0:]
 set xtics 1
-set grid y
 set ylabel "Commits"
 plot 'month_of_year.dat' using 1:2:(0.5) w boxes fs solid
 """)
@@ -1239,14 +1233,11 @@ plot 'month_of_year.dat' using 1:2:(0.5) w boxes fs solid
 		f.write(
 """
 set output 'commits_by_year_month.png'
-unset key
-set yrange [0:]
 set xdata time
 set timefmt "%Y-%m"
 set format x "%Y-%m"
 set xtics rotate
 set bmargin 5
-set grid y
 set ylabel "Commits"
 plot 'commits_by_year_month.dat' using 1:2:(0.5) w boxes fs solid
 """)
@@ -1258,12 +1249,8 @@ plot 'commits_by_year_month.dat' using 1:2:(0.5) w boxes fs solid
 		f.write(
 """
 set output 'commits_by_year.png'
-unset key
-set yrange [0:]
 set xtics 1 rotate
-set grid y
 set ylabel "Commits"
-set yrange [0:]
 plot 'commits_by_year.dat' using 1:2:(0.5) w boxes fs solid
 """)
 		f.close()
@@ -1274,12 +1261,9 @@ plot 'commits_by_year.dat' using 1:2:(0.5) w boxes fs solid
 		f.write(
 """
 set output 'files_by_date.png'
-unset key
-set yrange [0:]
 set xdata time
 set timefmt "%Y-%m-%d"
 set format x "%Y-%m-%d"
-set grid y
 set ylabel "Files"
 set xtics rotate
 set ytics autofreq
@@ -1294,12 +1278,9 @@ plot 'files_by_date.dat' using 1:2 w steps
 		f.write(
 """
 set output 'lines_of_code.png'
-unset key
-set yrange [0:]
 set xdata time
 set timefmt "%s"
 set format x "%Y-%m-%d"
-set grid y
 set ylabel "Lines"
 set xtics rotate
 set bmargin 6
@@ -1314,11 +1295,9 @@ plot 'lines_of_code.dat' using 1:2 w lines
 """
 set output 'lines_of_code_by_author.png'
 set key left top
-set yrange [0:]
 set xdata time
 set timefmt "%s"
 set format x "%Y-%m-%d"
-set grid y
 set ylabel "Lines"
 set xtics rotate
 set bmargin 6
@@ -1342,11 +1321,9 @@ plot """
 """
 set output 'commits_by_author.png'
 set key left top
-set yrange [0:]
 set xdata time
 set timefmt "%s"
 set format x "%Y-%m-%d"
-set grid y
 set ylabel "Commits"
 set xtics rotate
 set bmargin 6
